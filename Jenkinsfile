@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage ('Build')
+    stage ('Build'){
 		steps{
 			bat 'nuget restore ConsoleApp1.sln'
 			bat "\"${tool 'msbuild_2017'}\" ConsoleApp1.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
