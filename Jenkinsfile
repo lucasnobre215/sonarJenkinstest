@@ -3,7 +3,7 @@ pipeline {
   stages {
 	stage ('Build'){
 		steps{
-			bat "\"${tool 'msbuild_2017'}\"\\msbuild.exe ConsoleApp1.sln"
+			bat "\"${tool 'msbuild_2017'}\"\\MSBuild.exe ConsoleApp1.sln"
 		}
 	}
 		
