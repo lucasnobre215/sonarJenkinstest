@@ -5,7 +5,7 @@ pipeline {
 		steps{
 			bat "dir"
 			tool name: 'msbuild_2017', type: 'msbuild'
-			bat "\"${tool 'msbuild_2017'}\"MSBuild.exe ConsoleApp1.sln"
+			bat "\"${tool 'msbuild_2017'}\"MSBuild.exe TesteCsharp\\ConsoleApp1.sln"
 		}
 	}
 		
