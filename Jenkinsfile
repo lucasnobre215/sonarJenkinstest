@@ -1,5 +1,5 @@
 pipeline {
-  agent { label "build && windows" }
+  agent any
   stages {
     stage('Clean Workspace'){
       steps {
