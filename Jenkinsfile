@@ -28,7 +28,7 @@ pipeline {
         script {
           //def msbuild = tool name: 'msbuild_2017', type: 'hudson.plugins.msbuild.MsBuildInstallation'
           tool name: 'msbuild_2017', type: 'msbuild'
-          bat "\"${tool 'msbuild_2017'}\"\\msbuild.exe PrimeDotnet\\prime-dotnet.sln"
+          bat "\"${tool 'msbuild_2017'}\"msbuild.exe PrimeDotnet\\prime-dotnet.sln"
         }
       }
     }
