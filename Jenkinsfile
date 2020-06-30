@@ -2,12 +2,11 @@ pipeline {
   agent any
   stages {
 	stage('Start Sonar Analysis'){
-		steps{
-			def sqScannerMsBuildHome = tool 'sonar-scanner'
-			withSonarQubeEnv('My SonarQube Server') {
-			  bat "${sqScannerMsBuildHome}\\SonarQube.Scanner.MSBuild.exe begin /k:testSonarqube"
-			}
+		def sqScannerMsBuildHome = tool 'sonar-scanner'
+		withSonarQubeEnv('My SonarQube Server') {
+		  bat "${sqScannerMsBuildHome}\\SonarQube.Scanner.MSBuild.exe begin /k:testSonarqube"
 		}
+
 	}
 	
 	stage ('Build'){
@@ -17,11 +16,9 @@ pipeline {
 		}
 	}
 	stage('Stop Sonar Analysis'){
-		steps{
-			def sqScannerMsBuildHome = tool 'sonar-scanner'
-			withSonarQubeEnv('My SonarQube Server') {
-				bat "${sqScannerMsBuildHome}\\SonarQube.Scanner.MSBuild.exe end"
-			}
+		def sqScannerMsBuildHome = tool 'sonar-scanner'
+		withSonarQubeEnv('My SonarQube Server') {
+			bat "${sqScannerMsBuildHome}\\SonarQube.Scanner.MSBuild.exe end"
 		}
 	}
 	stage ('Archive'){
