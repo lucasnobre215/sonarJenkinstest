@@ -3,7 +3,7 @@ pipeline {
   stages {
 	stage('Start Sonar Analysis'){
 		steps{
-		  bat "\"${tool 'sonar-scanner'}\"\\SonarScanner.MSBuild.exe begin /k:testSonarqube /d:sonar.host.url=http://192.168.1.253:9000 /d:sonar.login=be7afe423973616ec30aea28493b1bc6fa1ab613"
+		  bat "\"${tool 'sonar-scanner'}\"\\SonarScanner.MSBuild.exe begin /k:testSonarqube /d:sonar.host.url=http://192.168.1.253:9000 /d:sonar.login=c2daae71b8641df2a9115e832e796fa7adbfa111"
 		}
 	}
 	
@@ -15,7 +15,7 @@ pipeline {
 	}
 	stage('Stop Sonar Analysis'){
 		steps{
-			bat "\"${tool 'sonar-scanner'}\"\\SonarScanner.MSBuild.exe end /d:sonar.login=be7afe423973616ec30aea28493b1bc6fa1ab613"
+			bat "\"${tool 'sonar-scanner'}\"\\SonarScanner.MSBuild.exe end /d:sonar.login=c2daae71b8641df2a9115e832e796fa7adbfa111"
 		}
 	}
 	stage ('Archive'){
