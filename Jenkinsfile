@@ -3,7 +3,7 @@ pipeline {
   stages {
 	stage('Start Sonar Analysis'){
 		steps{
-		  bat "\"${tool 'sonar-scanner'}\"\\SonarQube.Scanner.MSBuild.exe begin /k:testSonarqube"
+		  bat "\"${tool 'sonar-scanner'}\"\\SonarScanner.MSBuild.exe begin /k:testSonarqube"
 		}
 	}
 	
@@ -15,7 +15,7 @@ pipeline {
 	}
 	stage('Stop Sonar Analysis'){
 		steps{
-			bat "\"${tool 'sonar-scanner'}\"\\SonarQube.Scanner.MSBuild.exe end /k:testSonarqube"
+			bat "\"${tool 'sonar-scanner'}\"\\SonarScanner.MSBuild.exe end /k:testSonarqube"
 		}
 	}
 	stage ('Archive'){
