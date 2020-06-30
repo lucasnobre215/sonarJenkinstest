@@ -10,7 +10,7 @@ pipeline {
 	}
 	stage ('Archive'){
 		steps{
-			archive 'TesteCsharp/ConsoleApp1/bin/Debug/**'   
+			archive 'ConsoleApp1/bin/Debug/**'   
 		}
 	}
 
