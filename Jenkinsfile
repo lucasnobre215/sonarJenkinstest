@@ -9,11 +9,11 @@ pipeline {
 	}
 	stage('Sonar Analysis'){
 	steps{
-		withSonarQubeEnv('sonaqube') {
-			bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe begin /k:testSonarqube /d:sonar.host.url=http://192.168.1.253:9000 /d:sonar.login=c2daae71b8641df2a9115e832e796fa7adbfa111"
+
+			bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe begin /k:testSonarqube /d:sonar.host.url=http://192.168.1.253:9000 /d:sonar.login=1ec69f715c3bbba2837928c2dc265300ec2f6ac3"
 			bat "\"${tool 'msbuild_2017'}\"MSBuild.exe TesteCsharp\\ConsoleApp1.sln /t:Rebuild"
-			bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe end /d:sonar.login=c2daae71b8641df2a9115e832e796fa7adbfa111"
-		}}
+			bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe end /d:sonar.login=1ec69f715c3bbba2837928c2dc265300ec2f6ac3"
+		}
 	}
 	stage ('Archive'){
 		steps{
