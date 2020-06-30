@@ -8,5 +8,7 @@ namespace ConsoleApp1
 {
     public abstract class Class1
     {
+        public Class1() {
+        }
     }
 }
