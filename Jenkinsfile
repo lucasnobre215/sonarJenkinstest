@@ -3,9 +3,13 @@ pipeline {
   stages {
 	stage('Start Sonar Analysis'){
 		steps{
-			bat "SonarScanner.MSBuild.exe begin /k:\"testSonarqube" /d:sonar.host.url=\"http://192.168.1.253:9000\" /d:sonar.login=\"1493d0ad94e6c003487b4bf15f03cdcf8d61948c\""
+			def sqScannerMsBuildHome = tool 'sonar-scanner'
+			withSonarQubeEnv('My SonarQube Server') {
+			  bat "${sqScannerMsBuildHome}\\SonarQube.Scanner.MSBuild.exe begin /k:testSonarqube"
+			}
 		}
 	}
+	
 	stage ('Build'){
 		steps{
 			tool name: 'msbuild_2017', type: 'msbuild'
@@ -14,7 +18,10 @@ pipeline {
 	}
 	stage('Stop Sonar Analysis'){
 		steps{
-			bat "SonarScanner.MSBuild.exe end -d:sonar.login=\"1493d0ad94e6c003487b4bf15f03cdcf8d61948c\""
+			def sqScannerMsBuildHome = tool 'sonar-scanner'
+			withSonarQubeEnv('My SonarQube Server') {
+				bat "${sqScannerMsBuildHome}\\SonarQube.Scanner.MSBuild.exe end"
+			}
 		}
 	}
 	stage ('Archive'){
