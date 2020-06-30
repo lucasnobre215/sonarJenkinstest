@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            
+            Class1 a;
             Console.WriteLine("RODOU!");
             Console.WriteLine("RODOU!");
             Console.WriteLine("RODOU!");
