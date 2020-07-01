@@ -11,6 +11,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Class1 a;
+			int target = -5;
+			int num = 3;
+			target =- num; 
             Console.WriteLine("RODOU!");
             Console.WriteLine("RODOU!");
             Console.WriteLine("RODOU!");
