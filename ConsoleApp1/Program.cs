@@ -13,7 +13,7 @@ namespace ConsoleApp1
             Class1 a;
 			int target = -5;
 			int num = 3;
-			target =- num; 
+			target =+ num; 
             Console.WriteLine("RODOU!");
             Console.WriteLine("RODOU!");
             Console.WriteLine("RODOU!");
