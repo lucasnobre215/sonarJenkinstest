@@ -4,9 +4,9 @@ pipeline {
 
 		stage('Sonar Analysis'){
 			steps{
-				bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe begin /k:\"testesonar\" /d:sonar.host.url=\"http://192.168.1.253:9000\" /d:sonar.login=\"admin\" /d:sonar.password=\"123\""
+				bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe begin /k:\"testesonar\" /d:sonar.host.url=\"http://192.168.1.70:9000\" /d:sonar.login=\"admin\" /d:sonar.password=\"admin\""
 				bat "\"${tool 'msbuild_2017'}\"MSBuild.exe TesteCsharp\\ConsoleApp1.sln /t:Rebuild"
-				bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe end /d:sonar.login=\"admin\" /d:sonar.password=\"123\""
+				bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe end /d:sonar.login=\"admin\" /d:sonar.password=\"admin\""
 				
 			}
 		}
