@@ -1,7 +1,11 @@
 pipeline {
 	 agent any
 	 stages {
-
+		stage('Sonar Analysis'){
+			steps{
+				bat "nuget restore TesteCsharp\\ConsoleApp1.sln"
+			}
+		}
 		stage('Sonar Analysis'){
 			steps{
 				bat "\"${tool 'sonar-msbuild'}\"\\SonarScanner.MSBuild.exe begin /k:\"testesonar\" /d:sonar.host.url=\"http://192.168.1.70:9000\" /d:sonar.login=\"admin\" /d:sonar.password=\"admin\""
