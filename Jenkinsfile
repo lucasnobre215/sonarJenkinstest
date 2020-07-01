@@ -1,7 +1,7 @@
 pipeline {
 	 agent any
 	 stages {
-		stage('Sonar Analysis'){
+		stage('Nuget Restore'){
 			steps{
 				bat "nuget restore TesteCsharp\\ConsoleApp1.sln"
 			}
