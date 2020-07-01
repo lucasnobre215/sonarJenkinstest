@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage ('Archive'){
 			steps{
-				archive 'ConsoleApp1/bin/Debug/**'  
+				archiveArtifacts 'ConsoleApp1/bin/Debug/**'  
 			}
 		}
 	}
