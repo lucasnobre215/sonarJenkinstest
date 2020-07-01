@@ -3,7 +3,7 @@ pipeline {
 	 stages {
 		stage('Nuget Restore'){
 			steps{
-				bat "nuget restore TesteCsharp\\ConsoleApp1.sln"
+				bat "nuget restore ConsoleApp1.sln"
 			}
 		}
 		stage('Sonar Analysis'){

@@ -1,0 +1,167 @@
+Iniciado pelo usuário LUCAS RAMALHO NOBRE
+Checking out git https://github.com/lucasnobre215/sonarJenkinstest.git into C:\Users\Lucas\workspace\TesteCsharp@script to read Jenkinsfile
+using credential github
+ > git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/lucasnobre215/sonarJenkinstest.git # timeout=10
+Fetching upstream changes from https://github.com/lucasnobre215/sonarJenkinstest.git
+ > git.exe --version # timeout=10
+using GIT_ASKPASS to set credentials github
+ > git.exe fetch --tags --progress -- https://github.com/lucasnobre215/sonarJenkinstest.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision a265147253b476d6415fcc8138787abb4ad361c8 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f a265147253b476d6415fcc8138787abb4ad361c8 # timeout=10
+Commit message: "commiting"
+ > git.exe rev-list --no-walk a265147253b476d6415fcc8138787abb4ad361c8 # timeout=10
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\Lucas\workspace\TesteCsharp
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+using credential github
+ > git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/lucasnobre215/sonarJenkinstest.git # timeout=10
+Fetching upstream changes from https://github.com/lucasnobre215/sonarJenkinstest.git
+ > git.exe --version # timeout=10
+using GIT_ASKPASS to set credentials github
+ > git.exe fetch --tags --progress -- https://github.com/lucasnobre215/sonarJenkinstest.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision a265147253b476d6415fcc8138787abb4ad361c8 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f a265147253b476d6415fcc8138787abb4ad361c8 # timeout=10
+Commit message: "commiting"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Sonar Analysis)
+[Pipeline] tool
+[Pipeline] bat
+
+C:\Users\Lucas\workspace\TesteCsharp>"C:\Program Files\SonarQube\sonar-scanner"\SonarScanner.MSBuild.exe begin /k:"testesonar" /d:sonar.host.url="http://192.168.1.253:9000" /d:sonar.login="admin" /d:sonar.password="123" 
+SonarScanner for MSBuild 4.9
+Using the .NET Framework version of the Scanner for MSBuild
+Pre-processing started.
+Preparing working directories...
+16:41:52.443  Updating build integration targets...
+16:41:52.477  Fetching analysis configuration settings...
+16:41:54.526  Provisioning analyzer assemblies for cs...
+16:41:54.528  Installing required Roslyn analyzers...
+16:41:55.688  Provisioning analyzer assemblies for vbnet...
+16:41:55.688  Installing required Roslyn analyzers...
+16:41:55.724  Pre-processing succeeded.
+[Pipeline] tool
+[Pipeline] bat
+
+C:\Users\Lucas\workspace\TesteCsharp>"C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\"MSBuild.exe TesteCsharp\ConsoleApp1.sln /t:Rebuild 
+Microsoft (R) Build Engine version 16.7.0-preview-20308-01+584ca5f11 for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Building the projects in this solution one at a time. To enable parallel build, please add the "-m" switch.
+Build started 01/07/2020 16:41:56.
+Project "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1.sln" on node 1 (default targets).
+ValidateSolutionConfiguration:
+  Building solution configuration "Debug|Any CPU".
+Project "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1.sln" (1) is building "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj" (2) on node 1 (default targets).
+GenerateBindingRedirects:
+  No suggested binding redirects from ResolveAssemblyReferences.
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+SonarQubeCategoriseProject:
+  Sonar: (ConsoleApp1.csproj) Categorizing project as test or product code...
+  Sonar: (ConsoleApp1.csproj) Project categorized. SonarQubeTestProject=False
+CreateProjectSpecificDirs:
+  Creating directory "C:\Users\Lucas\workspace\TesteCsharp\.sonarqube\conf\0".
+SonarQubeImportBeforeInfo:
+  Sonar: (ConsoleApp1) SonarQube.Integration.ImportBefore.targets was loaded
+CoreCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\Roslyn\csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /platform:anycpu32bitpreferred /errorreport:prompt /warn:4 /define:DEBUG;TRACE /highentropyva+ /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.Linq.dll" /debug+ /debug:full /filealign:512 /optimize- /out:obj\Debug\ConsoleApp1.exe /ruleset:C:\Users\Lucas\workspace\TesteCsharp\.sonarqube\conf\0\merged.ruleset /errorlog:C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\bin\Debug\ConsoleApp1.exe.RoslynCA.json /subsystemversion:6.00 /target:exe /warnaserror- /utf8output /deterministic+ /langversion:7.3 /analyzer:C:\WINDOWS\TEMP\.sonarqube\resources\0\Google.Protobuf.dll /analyzer:C:\WINDOWS\TEMP\.sonarqube\resources\0\SonarAnalyzer.CFG.dll /analyzer:C:\WINDOWS\TEMP\.sonarqube\resources\0\SonarAnalyzer.CSharp.dll /analyzer:C:\WINDOWS\TEMP\.sonarqube\resources\0\SonarAnalyzer.dll /analyzer:C:\WINDOWS\TEMP\.sonarqube\resources\1\Google.Protobuf.dll /analyzer:C:\WINDOWS\TEMP\.sonarqube\resources\1\SonarAnalyzer.dll /analyzer:C:\WINDOWS\TEMP\.sonarqube\resources\1\SonarAnalyzer.VisualBasic.dll /additionalfile:C:\Users\Lucas\workspace\TesteCsharp\.sonarqube\conf\cs\SonarLint.xml /additionalfile:C:\Users\Lucas\workspace\TesteCsharp\.sonarqube\conf\0\ProjectOutFolderPath.txt Class1.cs Program.cs Properties\AssemblyInfo.cs "obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs"
+  Using shared compilation with compiler from directory: C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\Roslyn
+Program.cs(13,20): warning CS0168: A vari vel "a" est  declarada, mas nunca ‚ usada [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Class1.cs(1,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Class1.cs(2,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Class1.cs(3,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Class1.cs(4,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Class1.cs(5,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(2,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(3,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(4,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(5,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Properties\AssemblyInfo.cs(2,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(9,11): warning S1118: Add a 'protected' constructor or the 'static' keyword to the class declaration. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Class1.cs(11,9): warning S3442: Change the visibility of this constructor to 'protected'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(16,12): warning S2757: Was '+=' meant instead? [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(16,11): warning S1854: Remove this useless assignment to local variable 'target'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(14,15): warning S1854: Remove this useless assignment to local variable 'target'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+Program.cs(13,20): warning S1481: Remove the unused local variable 'a'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+_CopyAppConfigFile:
+Skipping target "_CopyAppConfigFile" because all output files are up-to-date with respect to the input files.
+CopyFilesToOutputDirectory:
+  Copying file from "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\obj\Debug\ConsoleApp1.exe" to "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\bin\Debug\ConsoleApp1.exe".
+  ConsoleApp1 -> C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+  Copying file from "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\obj\Debug\ConsoleApp1.pdb" to "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\bin\Debug\ConsoleApp1.pdb".
+WriteSonarQubeProjectData:
+  Sonar: (ConsoleApp1.csproj) Number of files to analyse: 5. The list of files to be analyzed is in C:\Users\Lucas\workspace\TesteCsharp\.sonarqube\out\0\FilesToAnalyze.txt.
+  Sonar: (ConsoleApp1.csproj) Project processed successfully
+Done Building Project "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj" (default targets).
+Done Building Project "C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1.sln" (default targets).
+
+Build succeeded.
+
+"C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1.sln" (default target) (1) ->
+"C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj" (default target) (2) ->
+(CoreCompile target) -> 
+  Program.cs(13,20): warning CS0168: A vari vel "a" est  declarada, mas nunca ‚ usada [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Class1.cs(1,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Class1.cs(2,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Class1.cs(3,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Class1.cs(4,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Class1.cs(5,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(2,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(3,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(4,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(5,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Properties\AssemblyInfo.cs(2,1): warning S1128: Remove this unnecessary 'using'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(9,11): warning S1118: Add a 'protected' constructor or the 'static' keyword to the class declaration. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Class1.cs(11,9): warning S3442: Change the visibility of this constructor to 'protected'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(16,12): warning S2757: Was '+=' meant instead? [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(16,11): warning S1854: Remove this useless assignment to local variable 'target'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(14,15): warning S1854: Remove this useless assignment to local variable 'target'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+  Program.cs(13,20): warning S1481: Remove the unused local variable 'a'. [C:\Users\Lucas\workspace\TesteCsharp\ConsoleApp1\ConsoleApp1.csproj]
+
+    17 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.23
+[Pipeline] tool
+[Pipeline] bat
+
+C:\Users\Lucas\workspace\TesteCsharp>"C:\Program Files\SonarQube\sonar-scanner"\SonarScanner.MSBuild.exe end /d:sonar.login="admin" /d:sonar.password="123" 
+SonarScanner for MSBuild 4.9
+Using the .NET Framework version of the Scanner for MSBuild
+Post-processing started.
+Calling the SonarQube Scanner...
+The SonarQube Scanner has finished
+16:42:00.301  Post-processing succeeded.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Archive)
+[Pipeline] archiveArtifacts
+Arquivando artefatos
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
